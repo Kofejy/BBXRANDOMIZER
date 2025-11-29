@@ -115,4 +115,11 @@ font-size: 14px;
 
 ::placeholder{
   color: white;
+
+}
+
+@media (max-width: 600px) {
+	.left-image,
+	.right-image { 
+	display: none;
 }
