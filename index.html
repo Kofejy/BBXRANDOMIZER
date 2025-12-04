@@ -36,7 +36,7 @@
 
     <div id="popup" style="display: none;">
     <div class="popup-content">
-        <div id="popup-content"></div> <!-- On affichera les combos ici -->
+        <div id="popup-content"></div>
         <button onclick="closePopup()">Fermer</button>
     </div>
 </div>
@@ -53,7 +53,6 @@ function closePopup() {
 }
 
     function shuffle(array) {
-    // Mélange un tableau avec Fisher-Yates
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
@@ -61,9 +60,6 @@ function closePopup() {
 }
 
 function generate() {
-    // ==========================
-    // 1) Récupération des valeurs
-    // ==========================
     const blades = [
         document.getElementById("blade1").value,
         document.getElementById("blade2").value,
@@ -82,25 +78,16 @@ function generate() {
         document.getElementById("bit3").value
     ];
 
-    // ==========================
-    // 2) Mélange des trois listes
-    // ==========================
     shuffle(blades);
     shuffle(ratchets);
     shuffle(bits);
 
-    // ==========================
-    // 3) Construction des combos
-    // ==========================
     let result = "";
 
     for (let i = 0; i < 3; i++) {
         result += `Combo ${i + 1} : ${blades[i]} / ${ratchets[i]} / ${bits[i]}<br>`;
     }
 
-    // ==========================
-    // 4) Affichage
-    // ==========================
     document.getElementById("popup-content").innerHTML = result;
     openPopup();
 }
@@ -113,5 +100,6 @@ function generate() {
 </body>
 
 </html>
+
 
 
